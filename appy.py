@@ -8,9 +8,9 @@ css_file = Path(__file__).parent / "styles" / "styles.css"
 with open(css_file, encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)   
 
-resume_file = "assets\CV_MARTIN _MENY_(IT_2026).pdf"
+resume_file = "assets/CV_MARTIN_MENY_(IT_2026).pdf"
 resume_file_name = "CV_Martin_Meny.pdf"
-profile_pic = "assets\Foto_CV.jpg"
+profile_pic = "assets/Foto_CV.jpg"
 
 layout = "centered"
 page_title = "Portfolio | Martin Meny" 
