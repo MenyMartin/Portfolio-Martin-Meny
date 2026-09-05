@@ -1,4 +1,22 @@
 
+@media (max-width: 768px) {
+
+    /* Centrar la foto en móvil */
+    .profile-img {
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Centrar el email en móvil */
+    .email {
+        margin-left: 0 !important;
+        text-align: center !important;
+        width: 100%;
+    }
+
+}
+
 /*   VARIABLES    */
 
 :root {
@@ -86,6 +104,8 @@ p {
     border-radius: 18px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
+    object-fit: cover;
+
 }
 
 
@@ -94,7 +114,7 @@ p {
 .description {
     color: var(--text-secondary);
     font-size: 1.05rem;
-    line-height: 1.8;
+    line-height: 2.8;
     max-width: 850px;
     margin-top: 1.5rem;
 }
@@ -179,8 +199,8 @@ p {
 }
 
 .email {
-    margin-left: 1cm;
-    font-size: 1.05rem;
+    text-align: left;
+    margin-left: 0;
 }
 
 .email a {

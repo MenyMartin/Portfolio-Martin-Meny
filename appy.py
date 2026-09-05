@@ -63,8 +63,7 @@ proyectos = [
         "nombre": "Sistema ERP de cafetería (en desarrollo) - Gestión completa del negocio · App de escritorio con C# · .NET · WPF · SQL Server · EF Core",
         "imagenes": [
             "assets/desarrollo1.png",
-            "assets/desarrollo1.png",
-            "assets/desarrollo1.png"
+            
         ],
         "links": [
             ("📂 GitHub", "https://github.com/MenyMartin/ERP_Cafeteria")
