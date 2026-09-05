@@ -154,6 +154,14 @@ for project in proyectos:
                 '<div class="project-divider"></div>',
                 unsafe_allow_html=True
             )
+
+    st.markdown(f"**{project['nombre']}**")
+    
+    link_cols = st.columns(len(project["links"]))
+    
+    for col, (nombre, link) in zip(link_cols, project["links"]):
+            with col:
+                st.markdown(f"[{nombre}]({link})")
     
     cols = st.columns(3)
 
@@ -163,13 +171,7 @@ for project in proyectos:
         with col:
             st.image(image, use_container_width=True)
 
-    st.markdown(f"**{project['nombre']}**")
-
-    link_cols = st.columns(len(project["links"]))
-
-    for col, (nombre, link) in zip(link_cols, project["links"]):
-        with col:
-            st.markdown(f"[{nombre}]({link})")
+    
 
     "###"
 
@@ -182,12 +184,6 @@ st.subheader('💻 Otros Proyectos')
 
 for project in otros_proyectos:
 
-    cols = st.columns(3)
-
-    for col, image in zip(cols, project["imagenes"]):
-        with col:
-            st.image(image, use_container_width=True)
-
     st.markdown(f"**{project['nombre']}**")
 
     link_cols = st.columns(len(project["links"]))
@@ -196,6 +192,14 @@ for project in otros_proyectos:
         with col:
             st.markdown(f"[{nombre}]({link})")
 
+    
+    cols = st.columns(3)
+
+    for col, image in zip(cols, project["imagenes"]):
+        with col:
+            st.image(image, use_container_width=True)
+
+    
     st.markdown(
         '<div class="project-divider"></div>',
         unsafe_allow_html=True
