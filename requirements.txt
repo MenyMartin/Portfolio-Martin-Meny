@@ -1,2 +1,2 @@
 streamlit
-streamlit-shadcn-uia
+streamlit-shadcn-ui
