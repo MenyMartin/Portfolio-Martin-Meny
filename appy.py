@@ -20,18 +20,14 @@ description = """
 Desarrollador Full Stack Junior  
 Técnico Universitario en Programación (UTN, 2025)
 
-Desarrollador Full Stack Junior con formación en Programación y experiencia práctica en el desarrollo de aplicaciones web. 
-He desarrollado proyectos utilizando C#, ASP.NET, SQL Server, Java, JSP, Servlets, MySQL, C++ y SFML, 
-aplicando Programación Orientada a Objetos, arquitectura en capas, desarrollo CRUD, autenticación, manejo de sesiones 
-e integración con bases de datos. Mi experiencia profesional previa en administración, coordinación y control de calidad 
-complementa mi perfil técnico con habilidades de organización, comunicación, análisis y resolución de problemas. Busco mi 
-primera oportunidad profesional en IT para aportar mis conocimientos y continuar creciendo como desarrollador de 
-software. 
+Desarrollador Junior con formación en programación y experiencia práctica en desarrollo de aplicaciones web 
+y sistemas de gestión. Enfocado principalmente en C#/.NET y bases de datos, con experiencia adicional en Java y C++
 """
 
 social_media = {
     "LinkedIn": "https://www.linkedin.com/in/martin-meny/",
-    "GitHub": "https://github.com/MenyMartin"
+    "GitHub": "https://github.com/MenyMartin",
+    
 }
 
 email = "martinmeny@live.com.ar"
@@ -40,39 +36,55 @@ email = "martinmeny@live.com.ar"
 
 
 proyectos = [
-    (
-        "🎬 eCommerce - (ASP.NET, HTML y C#) Aplicación web con niveles comprador y vendedor",
-        "https://youtu.be/FWX5zpJE8ds"
-    ),
-    (
-        "📂 eCommerce - (ASP.NET, HTML y C#) Aplicación web con niveles comprador y vendedor",
-        "https://github.com/MenyMartin/eCommerce"
-    ),
+    {
+        "nombre": "eCommerce - (ASP.NET, HTML y C#) Aplicación web con niveles comprador y vendedor",
+        "imagenes": [
+            "assets/ecommerce1.png",
+            "assets/ecommerce2.png",
+            "assets/ecommerce3.png"
+        ],
+        "links": [
+            ("📂 GitHub", "https://github.com/MenyMartin/eCommerce"),
+            ("🎬 Video", "https://youtu.be/FWX5zpJE8ds")
+        ]
+    },
+    {
+        "nombre": "Home Banking - (Java) Aplicación web con niveles usuario y operario bancario. Realizado en grupo de 5 personas",
+        "imagenes": [
+            "assets/homebanking1.png",
+            "assets/homebanking2.png",
+            "assets/homebanking3.png"
+        ],
+        "links": [
+            ("📂 GitHub", "https://github.com/MenyMartin/HomeBanking-Java/tree/main")
+        ]
+    },
+    {
+        "nombre": "Sistema ERP de cafetería (en desarrollo) - Gestión completa del negocio · App de escritorio con C# · .NET · WPF · SQL Server · EF Core",
+        "imagenes": [
+            "assets/desarrollo1.png",
+            "assets/desarrollo1.png",
+            "assets/desarrollo1.png"
+        ],
+        "links": [
+            ("📂 GitHub", "https://github.com/MenyMartin/ERP_Cafeteria")
+        ]
+    }
+]
 
-    ("-", ""),
-
-    (
-        "📂 Home Banking - (Java) Aplicación web con niveles usuario y operario bancario. Realizado en grupo de 5 personas",
-        "https://github.com/MenyMartin/HomeBanking-Java/tree/main"
-    ),
-
-    ("-", ""),
-
-    (
-        "🎬 Juego 2D Hale Bopp - (C++ y SFML) Proyecto académico con director de eventos, puntajes y niveles de dificultad variada",
-        "https://www.youtube.com/watch?v=sg0UOpJjQ7I"
-    ),
-    (
-        "📂 Juego 2D Hale Bopp - (C++ y SFML) Proyecto académico con director de eventos, puntajes y niveles de dificultad variada",
-        "https://github.com/MenyMartin/Juego_Hale_Bopp"
-    ),
-
-    ("-", ""),
-
-    (
-        "📂 Sistema ERP de cafetería (en desarrollo) - Gestión completa del negocio · App de escritorio con C# · .NET · WPF · SQL Server · EF Core",
-        "https://github.com/MenyMartin/ERP_Cafeteria"
-    )
+otros_proyectos = [
+    {
+        "nombre": "Juego 2D Hale Bopp - (C++ y SFML) Proyecto académico con director de eventos, puntajes y niveles de dificultad variada",
+        "imagenes": [
+            "assets/hale-bopp1.png",
+            "assets/hale-bopp2.png",
+            "assets/hale-bopp3.png"
+        ],
+        "links": [
+            ("📂 GitHub", "https://github.com/MenyMartin/Juego_Hale_Bopp"),
+            ("🎬 Video", "https://www.youtube.com/watch?v=sg0UOpJjQ7I")
+        ]
+    }
 ]
 
 #config pagina
@@ -115,8 +127,9 @@ with col2:
     st.markdown(
     f'<div class="email">📧 <a href="mailto:{email}">{email}</a></div>',
     unsafe_allow_html=True
-
 )
+
+
 
     col_cv, _ = st.columns([1, 1])
 
@@ -131,31 +144,77 @@ with col2:
 st.write(description)
 
 
-#proyectos
+# proyectos
 st.write("---")
 st.subheader('💻 Proyectos')
-for project, link in proyectos:
-    if project == "-":
-        st.markdown(
-            '<div class="project-divider"></div>',
-            unsafe_allow_html=True
-        )
-    else:
-        st.write(f"[{project}]({link})")
+
+for project in proyectos:
+
+    st.markdown(
+                '<div class="project-divider"></div>',
+                unsafe_allow_html=True
+            )
+    
+    cols = st.columns(3)
+
+    
+
+    for col, image in zip(cols, project["imagenes"]):
+        with col:
+            st.image(image, use_container_width=True)
+
+    st.markdown(f"**{project['nombre']}**")
+
+    link_cols = st.columns(len(project["links"]))
+
+    for col, (nombre, link) in zip(link_cols, project["links"]):
+        with col:
+            st.markdown(f"[{nombre}]({link})")
+
+    "###"
+
+    
+
+
+# otros proyectos
+st.write("---")
+st.subheader('💻 Otros Proyectos')
+
+for project in otros_proyectos:
+
+    cols = st.columns(3)
+
+    for col, image in zip(cols, project["imagenes"]):
+        with col:
+            st.image(image, use_container_width=True)
+
+    st.markdown(f"**{project['nombre']}**")
+
+    link_cols = st.columns(len(project["links"]))
+
+    for col, (nombre, link) in zip(link_cols, project["links"]):
+        with col:
+            st.markdown(f"[{nombre}]({link})")
+
+    st.markdown(
+        '<div class="project-divider"></div>',
+        unsafe_allow_html=True
+    )
 
 #habilidades
 st.write("---")
 st.subheader('🛠️ Habilidades técnicas')
 st.write(
     """
-- Lenguajes: C#, Java, C++, Python, SQL, JavaScript, HTML5, CSS3
-- Backend: ASP.NET, JSP, Servlets, JDBC
-- Frontend: HTML, CSS, JavaScript, Bootstrap
-- Bases de datos: SQL Server, MySQL
-- Ingles: Lectura avanzada - Conversación básica
-- Desarrollo: Programación Orientada a Objetos, arquitectura en capas, CRUD, autenticación y autorización, manejo de sesiones, validación de datos, integración con bases de datos
-Herramientas: Visual Studio, Eclipse, Apache Tomcat, Azure Data Studio, Git/GitHub
-Otros: C++ / SFML
+⚙️ Desarrollo: C# - .NET - ASP.NET - Java - JSP - Servlets - C++ - Python
+
+🗄️ Bases de datos: SQL Server - MySQL 
+
+🌐 Web: HTML - CSS - JavaScript - Bootstrap
+
+🛠️ Herramientas: Git - GitHub - Visual Studio - Eclipse - Apache Tomcat - Azure Data Studio
+
+🧠 Conceptos: POO - Arquitectura en capas - CRUD - APIs - Autenticación - Manejo de sesiones
 """
 )
 
@@ -164,36 +223,19 @@ st.write("---")
 st.subheader('💼 Experiencia profesional')
 st.markdown("""
 
-**2026 - Actual — Administrativo Técnico y Postventa** • Nogalpark • Benavidez
-- Administración: contabilización de FC, ND y NC; recepción de mercadería y remitos; generación de OP y seguimiento de cuentas corrientes de proveedores.
-- Ventas: comercialización de máquinas y repuestos, con asesoramiento a clientes particulares y empresas.
-- Postventa: recepción, control, seguimiento y entrega de máquinas ingresadas al taller de reparación.
+**2026 - Actualidad - Administrativo Técnico y Postventa** • Nogalpark • Benavidez
 
-**2024 - 2026 — Administrativo** • ASEN (Asociación Empresaria Noreste de PBA Hotelera Gastronómica) • San Isidro
-- Gestión y administración de documentación institucional.
-- Redacción formal de documentos institucionales (libros de actas y comunicaciones oficiales).
-- Preparación de documentación y coordinación logística de viajes a asambleas a nivel nacional.
-- Gestión de certificaciones notariales y presentaciones ante organismos como DPPJ y FEHGRA.
-- Organización y coordinación de la agenda del presidente de la asociación.
-- Atención y resolución de consultas de empresarios vía telefónica y email, derivando eficientemente a áreas legales y contables.
+**2024 - 2026 - Administrativo** • ASEN (Asociación Empresaria Noreste de PBA Hotelera Gastronómica) • San Isidro
 
-**2023 - 2024 — Inspector de Control de Calidad** • Wenlen S.A. • Bella Vista
-- Control de trazabilidad y verificación del correcto armado de válvulas e insumos para la industria de petróleo y gas (normas API 6A y API 6D).
-- Detección de desvíos y generación de alertas de calidad ante productos fuera de especificación.
-- Verificación de pedidos y control de despachos, asegurando concordancia con órdenes de producción.
 
-**2021 - 2023 — Coordinador de Servicio Técnico** • Kaeser Compresores • Garín
-- Coordinación y seguimiento de servicios técnicos (preventivos y de emergencia).
-- Gestión de un equipo de 4 técnicos de campo.
-- Atención directa a clientes, relevando necesidades y brindando soluciones técnicas.
-- Cotización y seguimiento de servicios y repuestos mediante sistema SAP.
-- Organización de agenda operativa, optimizando tiempos de respuesta.
+**2023 - 2024 - Inspector de Control de Calidad** • Wenlen S.A. • Bella Vista
 
-**2017 - 2021 — Producción y Oficina Técnica** • ROWA S.A. • Escobar
-- Reparación y puesta a punto de productos terminados.
-- Ensayos funcionales utilizando bancos de pruebas electroneumáticos y eléctricos.
-- Participación en tareas de laboratorio: investigación, desarrollo y mejora de productos.
-- Elaboración y gestión de documentación técnica.
+
+**2021 - 2023 - Coordinador de Servicio Técnico** • Kaeser Compresores • Garín
+
+
+**2017 - 2021 - Producción y Oficina Técnica** • ROWA S.A. • Escobar
+
 """)
 
 
