@@ -122,6 +122,15 @@ p {
     border-radius: 50%;
 }
 
+/*    NOMBRE   */
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 
 
 /*    DESCRIPCIÓN   */

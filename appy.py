@@ -109,12 +109,15 @@ with col1:
     
 
 with col2:
-    st.title(name)
+    col_nombre, _ = st.columns([2.8, 3])
 
-    col_linkedin, col_github, _ = st.columns(
-        [1.4, 1.4, 3],
-        gap="small"
-    )
+    with col_nombre:
+        st.markdown(
+            f'<div class="profile-name">{name}</div>',
+            unsafe_allow_html=True
+        )
+
+    col_linkedin, col_github, _ = st.columns([1.4, 1.4, 3], gap="small")
 
     with col_linkedin:
         st.link_button(
