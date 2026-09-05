@@ -10,7 +10,7 @@
 
     /* Centrar el email en móvil */
     .email {
-        margin-left: 0 !important;
+        /*margin-left: 0 !important;*/
         text-align: center !important;
         width: 100%;
     }
@@ -107,6 +107,21 @@ p {
     object-fit: cover;
 
 }
+
+.profile-photo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 
 
 /*    DESCRIPCIÓN   */

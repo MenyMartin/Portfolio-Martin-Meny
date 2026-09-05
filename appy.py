@@ -97,7 +97,14 @@ with open(resume_file, "rb") as pdf_file:
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image(profile_pic, width=250)
+    st.markdown(
+        f"""
+        <div class="profile-photo">
+            <img src="data:image/jpeg;base64,{__import__('base64').b64encode(open(profile_pic, 'rb').read()).decode()}" />
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     
 
